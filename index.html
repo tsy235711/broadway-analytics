@@ -40,17 +40,17 @@
           <a class="text-link" href="#insights">Read the insights <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="data-art" aria-hidden="true">
-        <div class="art-topline"><span>Tony season watch</span><span>I Hope I Get It</span></div>
+      <div class="data-art" aria-label="Growing weekly grosses graphic inspired by Evita">
+        <div class="art-topline"><span>“And the Money Kept Rolling In”</span><span>Evita</span></div>
         <div class="art-number">$42.8M</div>
-        <div class="art-caption">Every hopeful nominee, internally.</div>
-        <div class="art-chart">
+        <div class="art-caption">Weekly grosses take center stage.</div>
+        <div class="art-chart" aria-hidden="true">
           <i style="--height: 38%"></i><i style="--height: 55%"></i>
           <i style="--height: 48%"></i><i style="--height: 72%"></i>
           <i style="--height: 64%"></i><i style="--height: 88%"></i>
           <i style="--height: 78%"></i><i style="--height: 96%"></i>
         </div>
-        <div class="art-stats"><span>Attendance <b>↑</b></span><span>Demand <b>Strong</b></span></div>
+        <div class="art-stats"><span>Attendance <b>Up</b></span><span>Demand <b>Strong</b></span></div>
       </div>
     </section>
 
@@ -63,18 +63,84 @@
     <section class="report-section" id="dashboard" aria-labelledby="report-title">
       <div class="section-heading">
         <div>
-          <p class="section-label">Interactive Power BI experience</p>
+          <p class="section-label">Public JavaScript preview</p>
           <h2 id="report-title">The Broadway overview</h2>
         </div>
         <p>Filter, compare, and follow the signals shaping the Broadway market.</p>
       </div>
 
-      <div class="report-frame">
-        <iframe
-          title="Theater Spotlight Broadway overview"
-          src="https://msit.powerbi.com/reportEmbed?reportId=dc4cd647-b8d5-4627-984f-ca8e05684e54&amp;autoAuth=true&amp;ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;pageName=showInfographic&amp;navContentPaneEnabled=false&amp;filterPaneEnabled=false"
-          allowfullscreen
-        ></iframe>
+      <div class="report-frame javascript-dashboard-frame">
+        <div class="javascript-dashboard">
+          <section class="impact-search" aria-labelledby="impact-search-title">
+            <h3 id="impact-search-title">BROADWAY SHOW IMPACT <span>| Select shows and type to search</span></h3>
+            <label>
+              <span class="sr-only">Search or select a Broadway show</span>
+              <input id="impact-filter" type="search" list="impact-shows" placeholder="All">
+              <datalist id="impact-shows"></datalist>
+            </label>
+          </section>
+
+          <div class="impact-top-grid">
+            <article class="impact-panel footprint-panel">
+              <h3>THEATRE FOOTPRINT <span>| Gross by venue</span></h3>
+              <p>Select a theatre to cross-filter every aligned panel on this page.</p>
+              <div class="venue-chart" id="venue-chart"></div>
+            </article>
+
+            <article class="impact-panel comparison-panel gross-comparison">
+              <h3>AVG WEEKLY GROSS <span>| Before vs after</span></h3>
+              <p>Four completed Broadway weeks on each side of the Tony Awards.</p>
+              <div class="comparison-chart" id="gross-comparison"></div>
+            </article>
+
+            <article class="impact-panel comparison-panel capacity-comparison">
+              <h3>CAPACITY <span>| Before vs after</span></h3>
+              <p>Ticket-weighted seat utilization for the same four-week periods.</p>
+              <div class="comparison-chart" id="capacity-comparison"></div>
+            </article>
+          </div>
+
+          <div class="impact-highlights">
+            <article class="impact-card blue"><h3>HIGHEST GROSS <span>| Before</span></h3><strong>Good Night, and Good Luck<br>Winter Garden Theatre | $4,192,902</strong></article>
+            <article class="impact-card red"><h3>HIGHEST GROSS <span>| After</span></h3><strong>The Music Man<br>Winter Garden Theatre | $2,761,054</strong></article>
+            <article class="impact-card purple"><h3>HIGHEST CAPACITY <span>| Before</span></h3><strong>An Enemy of the People<br>Circle in the Square Theatre | 103%</strong></article>
+            <article class="impact-card teal"><h3>HIGHEST CAPACITY <span>| After</span></h3><strong>An Enemy of the People<br>Circle in the Square Theatre | 103%</strong></article>
+          </div>
+
+          <div class="impact-kpis">
+            <article class="orange"><h3>GROSS CHANGE <span>| After vs before</span></h3><strong>-4.0%</strong></article>
+            <article class="magenta"><h3>CAPACITY CHANGE <span>| Points</span></h3><strong>+2.8%</strong></article>
+            <article class="navy"><h3>BOX OFFICE <span>| Total gross</span></h3><strong>$35.57B</strong></article>
+            <article class="green"><h3>TONY <span>| Wins</span></h3><strong>1,110</strong></article>
+            <article class="sky"><h3>AUDIENCE <span>| Tickets sold</span></h3><strong>435M</strong></article>
+          </div>
+
+          <div class="impact-bottom-grid">
+            <div class="analysis-column">
+              <article class="insight-card">
+                <h3>INSIGHT ANALYSIS <span>| What changed after the Tonys?</span></h3>
+                <p>Average weekly gross decreased 4.0%, while weighted capacity increased 2.8% percentage points. Utilization improved while revenue weakened; pricing, performance count, and show mix may explain the divergence. This four-week comparison is descriptive, not proof of causation.</p>
+              </article>
+              <article class="reading-card">
+                <h3>HOW TO READ THIS ANALYSIS</h3>
+                <p>Before and after values use four completed Broadway weeks around each actual Tony ceremony date. The comparison is descriptive and may also reflect seasonality, pricing, performance schedules, and changing show mix.</p>
+              </article>
+            </div>
+
+            <article class="impact-panel detail-panel">
+              <h3>SHOW IMPACT DETAIL <span>| Theatre, revenue and awards</span></h3>
+              <div class="impact-table-wrap">
+                <table>
+                  <thead><tr><th>Show</th><th>Theatre</th><th>Gross</th><th>Capacity</th><th>Tony Wins</th><th>Tony Nominations</th></tr></thead>
+                  <tbody id="impact-table-body"></tbody>
+                  <tfoot><tr><th colspan="2">Total</th><th>$35.57B</th><th>82.5%</th><th>1,110</th><th>3,896</th></tr></tfoot>
+                </table>
+              </div>
+            </article>
+          </div>
+
+          <p class="dashboard-note"><strong>Preview:</strong> recreated from your screenshot with illustrative local data. Replace it with verified source data before public use.</p>
+        </div>
       </div>
     </section>
 
@@ -116,14 +182,31 @@
         class="email-button"
         href="mailto:tsy235711@gmail.com?subject=Theater%20Spotlight%20feedback"
       >
-        Email tsy235711@gmail.com
+        Send feedback
       </a>
     </section>
   </main>
 
   <footer>
     <span>Theater Spotlight</span>
-    <span>Powered by Microsoft Power BI</span>
+    <p class="source-credit">
+      Data sources:
+      <a href="https://playbill.com/grosses" target="_blank" rel="noopener">Playbill Grosses</a>
+      and
+      <a href="https://www.tonyawards.com" target="_blank" rel="noopener">The Tony Awards</a>.
+    </p>
+    <p class="site-disclaimer">
+      <strong>Disclaimer:</strong> Theater Spotlight is an independent, non-commercial
+      educational project and is not affiliated with or endorsed by any theatre, production,
+      ticket provider, Playbill, Microsoft, or Power BI. I do not claim ownership of
+      third-party data, names, trademarks, or source material; all rights remain with their
+      respective owners. Text and summaries were created with AI assistance and may contain
+      errors. Verify information with the original sources before acting on it. Nothing on
+      this site grants permission to republish, resell, or commercially exploit third-party
+      material. The site is provided without warranties and is not intended for purchasing,
+      financial, legal, or business decisions.
+    </p>
   </footer>
+  <script src="dashboard.js"></script>
 </body>
 </html>

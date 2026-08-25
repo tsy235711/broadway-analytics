@@ -29,9 +29,9 @@
         <p class="intro">Explore how scale, capacity, programming, and audience demand give every Broadway theatre its own rhythm.</p>
         <div class="hero-actions"><a class="primary-button" href="#dashboard">Explore venues</a><a class="text-link" href="#insights">Read the story <span aria-hidden="true">→</span></a></div>
       </div>
-      <div class="data-art theatre-art" aria-hidden="true">
-        <div class="art-topline"><span>House capacity</span><span>This week</span></div>
-        <div class="capacity-list">
+      <div class="data-art theatre-art" aria-label="Theatre occupancy graphic inspired by Hamilton">
+        <div class="art-topline"><span>“The Room Where It Happens”</span><span>Hamilton</span></div>
+        <div class="capacity-list" aria-hidden="true">
           <div><span>Orchestra</span><i><b style="--width: 94%"></b></i><strong>94%</strong></div>
           <div><span>Mezzanine</span><i><b style="--width: 88%"></b></i><strong>88%</strong></div>
           <div><span>Balcony</span><i><b style="--width: 79%"></b></i><strong>79%</strong></div>
@@ -53,7 +53,11 @@
       </div>
     </section>
     <article class="story" id="insights" aria-labelledby="theatres-story-title">
-      <div class="story-heading"><p class="section-label">Behind the numbers</p><h2 id="theatres-story-title">The room changes the performance</h2><p class="story-lead">Each Broadway house is a distinct creative and commercial ecosystem.</p></div>
+      <div class="story-heading">
+        <p class="section-label">Behind the numbers</p>
+        <h2 id="theatres-story-title">The room changes the performance</h2>
+        <p class="story-lead">Each Broadway house is a distinct creative and commercial ecosystem.</p>
+      </div>
       <div class="story-copy"><p>
         A Broadway theatre is not simply a container for a show. Its seating capacity, location,
         history, sightlines, and atmosphere shape both the audience experience and the economics
@@ -76,6 +80,25 @@
       </p></div>
     </article>
   </main>
-  <footer><span>Theater Spotlight</span><span>Powered by Microsoft Power BI</span></footer>
+  <footer>
+    <span>Theater Spotlight</span>
+    <p class="source-credit">
+      Data sources:
+      <a href="https://playbill.com/grosses" target="_blank" rel="noopener">Playbill Grosses</a>
+      and
+      <a href="https://www.tonyawards.com" target="_blank" rel="noopener">The Tony Awards</a>.
+    </p>
+    <p class="site-disclaimer">
+      <strong>Disclaimer:</strong> Theater Spotlight is an independent, non-commercial
+      educational project and is not affiliated with or endorsed by any theatre, production,
+      ticket provider, Playbill, Microsoft, or Power BI. I do not claim ownership of
+      third-party data, names, trademarks, or source material; all rights remain with their
+      respective owners. Text and summaries were created with AI assistance and may contain
+      errors. Verify information with the original sources before acting on it. Nothing on
+      this site grants permission to republish, resell, or commercially exploit third-party
+      material. The site is provided without warranties and is not intended for purchasing,
+      financial, legal, or business decisions.
+    </p>
+  </footer>
 </body>
 </html>

@@ -34,7 +34,7 @@
         <h1>Your ticket to the spotlight.</h1>
         <p class="intro">
           Search current public rush, digital lottery, and standing-room offers for
-          Broadway productions—all in one place.
+          Broadway productions, all in one place.
         </p>
         <div class="hero-actions">
           <a class="primary-button" href="#ticket-directory">Find an offer</a>
@@ -49,17 +49,16 @@
         </div>
       </div>
 
-      <div class="ticket-stub" aria-hidden="true">
-        <div class="stub-main">
-          <span>THEATER SPOTLIGHT</span>
-          <strong>ADMIT<br>ONE</strong>
-          <small>Rush · Lottery · SRO</small>
+      <div class="data-art access-art" aria-label="Public ticket offer graphic inspired by Guys and Dolls">
+        <div class="art-topline"><span>“Luck Be a Lady Tonight”</span><span>Guys and Dolls</span></div>
+        <div class="art-number">45</div>
+        <div class="art-caption">Public low-cost ticket offers.</div>
+        <div class="capacity-list" aria-hidden="true">
+          <div><span>Rush</span><i><b style="--width: 95%"></b></i><strong>19</strong></div>
+          <div><span>Lottery</span><i><b style="--width: 100%"></b></i><strong>20</strong></div>
+          <div><span>SRO</span><i><b style="--width: 30%"></b></i><strong>6</strong></div>
         </div>
-        <div class="stub-side">
-          <span>NYC</span>
-          <b>$10+</b>
-          <small>Subject to availability</small>
-        </div>
+        <div class="art-stats"><span>Productions <b>23</b></span><span>Access <b>Same day</b></span></div>
       </div>
     </section>
 
@@ -86,15 +85,27 @@
           <span>Search by show or theatre</span>
           <input id="ticket-search" type="search" placeholder="Try Hamilton or Gershwin">
         </label>
-        <label>
-          <span>Ticket type</span>
-          <select id="ticket-category">
-            <option value="All">All offers</option>
-            <option value="Rush">Rush</option>
-            <option value="Lottery">Lottery</option>
-            <option value="SRO">Standing room</option>
-          </select>
-        </label>
+        <fieldset class="ticket-type-filter">
+          <legend>Ticket type</legend>
+          <div class="filter-tags" id="ticket-category">
+            <label>
+              <input type="radio" name="ticket-category" value="All" checked>
+              <span>All offers</span>
+            </label>
+            <label>
+              <input type="radio" name="ticket-category" value="Rush">
+              <span>Rush</span>
+            </label>
+            <label>
+              <input type="radio" name="ticket-category" value="Lottery">
+              <span>Lottery</span>
+            </label>
+            <label>
+              <input type="radio" name="ticket-category" value="SRO">
+              <span>SRO</span>
+            </label>
+          </div>
+        </fieldset>
       </div>
 
       <div class="directory-status" aria-live="polite">
@@ -109,6 +120,23 @@
   <footer>
     <span>Theater Spotlight</span>
     <span>Ticket policies are informational and not guaranteed.</span>
+    <p class="source-credit">
+      Data sources:
+      <a href="https://playbill.com/grosses" target="_blank" rel="noopener">Playbill Grosses</a>,
+      <a href="https://www.tonyawards.com" target="_blank" rel="noopener">The Tony Awards</a>,
+      and Playbill's public rush, lottery, and standing-room policy listings.
+    </p>
+    <p class="site-disclaimer">
+      <strong>Disclaimer:</strong> Theater Spotlight is an independent, non-commercial
+      educational project and is not affiliated with or endorsed by any theatre, production,
+      ticket provider, Playbill, Microsoft, or Power BI. I do not claim ownership of
+      third-party data, names, trademarks, or source material; all rights remain with their
+      respective owners. Text and summaries were created with AI assistance and may contain
+      errors. Verify prices, eligibility, timing, and availability with the original source
+      before acting. Nothing on this site grants permission to republish, resell, or
+      commercially exploit third-party material. The site is provided without warranties and
+      is not intended for purchasing, financial, legal, or business decisions.
+    </p>
   </footer>
 </body>
 </html>
