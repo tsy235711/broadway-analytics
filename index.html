@@ -101,25 +101,25 @@
           </div>
 
           <div class="impact-highlights">
-            <article class="impact-card blue"><h3>HIGHEST GROSS <span>| Before</span></h3><strong>Good Night, and Good Luck<br>Winter Garden Theatre | $4,192,902</strong></article>
-            <article class="impact-card red"><h3>HIGHEST GROSS <span>| After</span></h3><strong>The Music Man<br>Winter Garden Theatre | $2,761,054</strong></article>
-            <article class="impact-card purple"><h3>HIGHEST CAPACITY <span>| Before</span></h3><strong>An Enemy of the People<br>Circle in the Square Theatre | 103%</strong></article>
-            <article class="impact-card teal"><h3>HIGHEST CAPACITY <span>| After</span></h3><strong>An Enemy of the People<br>Circle in the Square Theatre | 103%</strong></article>
+            <article class="impact-card blue"><h3>HIGHEST GROSS <span>| Before</span></h3><strong id="highest-gross-before"></strong></article>
+            <article class="impact-card red"><h3>HIGHEST GROSS <span>| After</span></h3><strong id="highest-gross-after"></strong></article>
+            <article class="impact-card purple"><h3>HIGHEST CAPACITY <span>| Before</span></h3><strong id="highest-capacity-before"></strong></article>
+            <article class="impact-card teal"><h3>HIGHEST CAPACITY <span>| After</span></h3><strong id="highest-capacity-after"></strong></article>
           </div>
 
           <div class="impact-kpis">
-            <article class="orange"><h3>GROSS CHANGE <span>| After vs before</span></h3><strong>-4.0%</strong></article>
-            <article class="magenta"><h3>CAPACITY CHANGE <span>| Points</span></h3><strong>+2.8%</strong></article>
-            <article class="navy"><h3>BOX OFFICE <span>| Total gross</span></h3><strong>$35.57B</strong></article>
-            <article class="green"><h3>TONY <span>| Wins</span></h3><strong>1,110</strong></article>
-            <article class="sky"><h3>AUDIENCE <span>| Tickets sold</span></h3><strong>435M</strong></article>
+            <article class="orange"><h3>GROSS CHANGE <span>| After vs before</span></h3><strong id="gross-change"></strong></article>
+            <article class="magenta"><h3>CAPACITY CHANGE <span>| Points</span></h3><strong id="capacity-change"></strong></article>
+            <article class="navy"><h3>BOX OFFICE <span>| Total gross</span></h3><strong id="total-gross"></strong></article>
+            <article class="green"><h3>TONY <span>| Wins</span></h3><strong id="tony-wins"></strong></article>
+            <article class="sky"><h3>AUDIENCE <span>| Tickets sold</span></h3><strong id="total-seats"></strong></article>
           </div>
 
           <div class="impact-bottom-grid">
             <div class="analysis-column">
               <article class="insight-card">
                 <h3>INSIGHT ANALYSIS <span>| What changed after the Tonys?</span></h3>
-                <p>Average weekly gross decreased 4.0%, while weighted capacity increased 2.8% percentage points. Utilization improved while revenue weakened; pricing, performance count, and show mix may explain the divergence. This four-week comparison is descriptive, not proof of causation.</p>
+                <p id="impact-insight"></p>
               </article>
               <article class="reading-card">
                 <h3>HOW TO READ THIS ANALYSIS</h3>
@@ -130,16 +130,19 @@
             <article class="impact-panel detail-panel">
               <h3>SHOW IMPACT DETAIL <span>| Theatre, revenue and awards</span></h3>
               <div class="impact-table-wrap">
-                <table>
+                <table class="impact-detail-table">
                   <thead><tr><th>Show</th><th>Theatre</th><th>Gross</th><th>Capacity</th><th>Tony Wins</th><th>Tony Nominations</th></tr></thead>
                   <tbody id="impact-table-body"></tbody>
-                  <tfoot><tr><th colspan="2">Total</th><th>$35.57B</th><th>82.5%</th><th>1,110</th><th>3,896</th></tr></tfoot>
+                  <tfoot><tr><th colspan="2">Total</th><th id="table-total-gross"></th><th id="table-total-capacity"></th><th id="table-total-wins"></th><th id="table-total-nominations"></th></tr></tfoot>
                 </table>
               </div>
+              <p class="table-filter-hint" id="table-filter-status" aria-live="polite">
+                Select a row to filter every visual.
+              </p>
             </article>
           </div>
 
-          <p class="dashboard-note"><strong>Preview:</strong> recreated from your screenshot with illustrative local data. Replace it with verified source data before public use.</p>
+          <p class="dashboard-note"><strong>Data:</strong> calculated from the PBIP model's Broadway grosses and Tony Awards source files. Use the show search, a theatre bar, or a table row to cross-filter the dashboard.</p>
         </div>
       </div>
     </section>

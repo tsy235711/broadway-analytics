@@ -54,17 +54,62 @@
     <section class="report-section" id="dashboard" aria-labelledby="report-title">
       <div class="section-heading">
         <div>
-          <p class="section-label">Interactive Power BI experience</p>
+          <p class="section-label">Interactive JavaScript dashboard</p>
           <h2 id="report-title">40 Years of Broadway</h2>
         </div>
         <p>Move across the timeline to discover long-term patterns and turning points.</p>
       </div>
-      <div class="report-frame">
-        <iframe
-          title="Theater Spotlight 40 Years of Broadway"
-          src="https://msit.powerbi.com/reportEmbed?reportId=dc4cd647-b8d5-4627-984f-ca8e05684e54&amp;autoAuth=true&amp;ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;pageName=overview&amp;navContentPaneEnabled=false&amp;filterPaneEnabled=false"
-          allowfullscreen
-        ></iframe>
+      <div class="report-frame javascript-dashboard-frame">
+        <div class="javascript-dashboard page-dashboard history-dashboard">
+          <div class="pbi-card-grid history-card-grid">
+            <article class="pbi-card pbi-blue"><h3>Total Broadway Gross</h3><strong id="history-total-gross"></strong></article>
+            <article class="pbi-card pbi-red"><h3>Total Attendance</h3><strong id="history-total-seats"></strong></article>
+            <article class="pbi-card pbi-purple"><h3>Tony Award Win Rate</h3><strong id="history-win-rate"></strong></article>
+            <article class="pbi-card pbi-teal"><h3>Total Tony Wins</h3><strong id="history-tony-wins"></strong></article>
+          </div>
+
+          <div class="pbi-filter-row history-filter-row">
+            <label class="pbi-filter"><span>Year</span><select id="history-year"><option value="">All</option></select></label>
+            <label class="pbi-filter"><span>Shows</span><input id="history-show" type="search" list="history-shows" placeholder="All"><datalist id="history-shows"></datalist></label>
+          </div>
+
+          <div class="history-chart-grid">
+            <article class="impact-panel chart-panel">
+              <h3>Weekly Broadway Gross by Week Starting</h3>
+              <svg id="history-line-chart" class="dashboard-svg" viewBox="0 0 700 245" role="img" aria-label="Weekly Broadway gross line chart"></svg>
+            </article>
+            <article class="impact-panel chart-panel">
+              <h3>Highest-Grossing Productions</h3>
+              <div class="dashboard-bars" id="history-production-bars"></div>
+            </article>
+          </div>
+
+          <div class="history-bottom-grid">
+            <article class="impact-panel detail-panel">
+              <h3>Leading Broadway Productions</h3>
+              <div class="impact-table-wrap">
+                <table class="history-sort-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" data-history-sort-header="show" aria-sort="none"><button type="button" class="table-sort-button" data-history-sort="show">Production <span aria-hidden="true"></span></button></th>
+                      <th scope="col" data-history-sort-header="gross" aria-sort="descending"><button type="button" class="table-sort-button" data-history-sort="gross">Total Gross <span aria-hidden="true">&#9660;</span></button></th>
+                      <th scope="col" data-history-sort-header="seats" aria-sort="none"><button type="button" class="table-sort-button" data-history-sort="seats">Total Seats <span aria-hidden="true"></span></button></th>
+                      <th scope="col" data-history-sort-header="capacity" aria-sort="none"><button type="button" class="table-sort-button" data-history-sort="capacity">Average Capacity <span aria-hidden="true"></span></button></th>
+                    </tr>
+                  </thead>
+                  <tbody id="history-table-body"></tbody>
+                </table>
+              </div>
+              <p class="table-filter-hint" id="history-table-status" aria-live="polite">Select a row to filter every visual.</p>
+            </article>
+            <article class="pbi-card pbi-orange history-nominations"><h3>Total Tony Nominations</h3><strong id="history-nominations"></strong></article>
+            <div class="history-side-cards">
+              <article class="pbi-card pbi-magenta"><h3>Average Ticket Price</h3><strong id="history-ticket-price"></strong></article>
+              <article class="pbi-card pbi-navy"><h3>Average Capacity</h3><strong id="history-capacity"></strong></article>
+            </div>
+          </div>
+          <p class="dashboard-note"><strong>Data:</strong> calculated from the PBIP model source files. Use the year, show search, bars, or table rows to cross-filter the page.</p>
+        </div>
       </div>
     </section>
 
@@ -117,5 +162,7 @@
       financial, legal, or business decisions.
     </p>
   </footer>
+  <script src="dashboard-utils.js"></script>
+  <script src="history-dashboard.js"></script>
 </body>
 </html>

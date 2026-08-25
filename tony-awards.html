@@ -52,17 +52,73 @@
     <section class="report-section" id="dashboard" aria-labelledby="report-title">
       <div class="section-heading">
         <div>
-          <p class="section-label">Interactive Power BI experience</p>
+          <p class="section-label">Interactive JavaScript dashboard</p>
           <h2 id="report-title">Tony Awards Effect</h2>
         </div>
         <p>Compare performance around nominations, wins, and awards-season attention.</p>
       </div>
-      <div class="report-frame">
-        <iframe
-          title="Theater Spotlight Tony Awards Effect"
-          src="https://msit.powerbi.com/reportEmbed?reportId=dc4cd647-b8d5-4627-984f-ca8e05684e54&amp;autoAuth=true&amp;ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;pageName=tonyAwards&amp;navContentPaneEnabled=false&amp;filterPaneEnabled=false"
-          allowfullscreen
-        ></iframe>
+      <div class="report-frame javascript-dashboard-frame">
+        <div class="javascript-dashboard page-dashboard tony-dashboard">
+          <div class="pbi-card-grid tony-card-grid">
+            <article class="pbi-card pbi-blue"><h3>Nominee Records</h3><strong id="tony-nominees"></strong></article>
+            <article class="pbi-card pbi-red"><h3>Total Tony Wins</h3><strong id="tony-total-wins"></strong></article>
+            <article class="pbi-card pbi-purple"><h3>Tony Award Win Rate</h3><strong id="tony-win-rate"></strong></article>
+            <article class="pbi-card pbi-teal"><h3>Winning People</h3><strong id="tony-winning-people"></strong></article>
+          </div>
+
+          <div class="pbi-filter-row tony-filter-row">
+            <label class="pbi-filter"><span>Tony Awards Year</span><select id="tony-year"><option value="">All</option></select></label>
+            <label class="pbi-filter"><span>Tony Award Category</span><input id="tony-category" type="search" list="tony-categories" placeholder="All"><datalist id="tony-categories"></datalist></label>
+            <label class="pbi-filter"><span>Shows</span><input id="tony-show" type="search" list="tony-shows" placeholder="All"><datalist id="tony-shows"></datalist></label>
+            <label class="pbi-filter"><span>Winning-Year Group</span><select id="tony-year-group"><option value="">All</option><option>1 winning year</option><option>More than 1 winning year</option></select></label>
+          </div>
+
+          <section class="tony-impact-section" aria-labelledby="tony-impact-title">
+            <div class="tony-impact-heading">
+              <h3 id="tony-impact-title">Box Office Around the Tony Awards</h3>
+              <p>Compare the four completed Broadway weeks before and after each ceremony for the current selection.</p>
+            </div>
+
+            <div class="tony-impact-comparisons">
+              <article class="impact-panel comparison-panel gross-comparison">
+                <h3>Average Weekly Gross <span>| Before vs after</span></h3>
+                <p>Revenue across the selected productions and Tony years.</p>
+                <div class="comparison-chart" id="tony-impact-gross-comparison"></div>
+              </article>
+              <article class="impact-panel comparison-panel capacity-comparison">
+                <h3>Capacity <span>| Before vs after</span></h3>
+                <p>Ticket-weighted seat utilization for the same periods.</p>
+                <div class="comparison-chart" id="tony-impact-capacity-comparison"></div>
+              </article>
+            </div>
+
+            <div class="impact-highlights tony-impact-highlights">
+              <article class="impact-card blue"><h3>Highest Gross <span>| Before</span></h3><strong id="tony-highest-gross-before"></strong></article>
+              <article class="impact-card red"><h3>Highest Gross <span>| After</span></h3><strong id="tony-highest-gross-after"></strong></article>
+              <article class="impact-card purple"><h3>Highest Capacity <span>| Before</span></h3><strong id="tony-highest-capacity-before"></strong></article>
+              <article class="impact-card teal"><h3>Highest Capacity <span>| After</span></h3><strong id="tony-highest-capacity-after"></strong></article>
+            </div>
+
+            <div class="impact-kpis tony-impact-kpis">
+              <article class="orange"><h3>Gross Change <span>| After vs before</span></h3><strong id="tony-gross-change"></strong></article>
+              <article class="magenta"><h3>Capacity Change <span>| Points</span></h3><strong id="tony-capacity-change"></strong></article>
+            </div>
+          </section>
+
+          <div class="tony-chart-grid">
+            <article class="impact-panel chart-panel"><h3>Tony Wins by Award Category</h3><div class="dashboard-bars" id="tony-category-bars"></div></article>
+            <article class="impact-panel chart-panel"><h3>Most Tony Wins by Production and Winning Years</h3><div class="dashboard-bars dual-bars" id="tony-production-bars"></div></article>
+          </div>
+
+          <div class="tony-bottom-grid">
+            <article class="impact-panel detail-panel">
+              <h3>Tony Award Nominees and Winners</h3>
+              <div class="impact-table-wrap tony-table-wrap"><table class="tony-records-table"><thead><tr><th>Year</th><th>Award Category</th><th>Nominee</th><th>Production</th><th>Winner</th></tr></thead><tbody id="tony-table-body"></tbody></table></div>
+              <p class="table-filter-hint" id="tony-table-status" aria-live="polite">Select a row to filter every visual.</p>
+            </article>
+            <article class="impact-panel chart-panel"><h3>Most Nominated Productions and Winning Years</h3><div class="dashboard-bars dual-bars" id="tony-nomination-bars"></div></article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -113,5 +169,7 @@
       financial, legal, or business decisions.
     </p>
   </footer>
+  <script src="dashboard-utils.js"></script>
+  <script src="tony-dashboard.js"></script>
 </body>
 </html>

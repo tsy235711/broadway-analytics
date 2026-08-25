@@ -41,15 +41,54 @@
     </section>
     <section class="report-section" id="dashboard" aria-labelledby="report-title">
       <div class="section-heading">
-        <div><p class="section-label">Interactive Power BI experience</p><h2 id="report-title">Explore the Theatre District</h2></div>
+        <div><p class="section-label">Interactive JavaScript dashboard</p><h2 id="report-title">Explore the Theatre District</h2></div>
         <p>Compare venue size, attendance, and the percentage of available seats filled.</p>
       </div>
-      <div class="report-frame">
-        <iframe
-          title="Theater Spotlight Broadway theatres"
-          src="https://msit.powerbi.com/reportEmbed?reportId=dc4cd647-b8d5-4627-984f-ca8e05684e54&amp;autoAuth=true&amp;ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;pageName=theatres&amp;navContentPaneEnabled=false&amp;filterPaneEnabled=false"
-          allowfullscreen
-        ></iframe>
+      <div class="report-frame javascript-dashboard-frame">
+        <div class="javascript-dashboard page-dashboard theatres-dashboard">
+          <div class="theatre-top-grid">
+            <article class="pbi-card pbi-blue"><h3>Theatres in the Data</h3><strong id="theatre-count"></strong></article>
+            <article class="pbi-card pbi-red"><h3>Gross at Mapped Theatres</h3><strong id="theatre-total-gross"></strong></article>
+            <article class="pbi-card pbi-purple"><h3>Average Capacity</h3><strong id="theatre-capacity"></strong></article>
+            <label class="pbi-filter"><span>Year</span><select id="theatre-year"><option value="">All</option></select></label>
+            <label class="pbi-filter"><span>Theatre</span><input id="theatre-name" type="search" list="theatre-names" placeholder="All"><datalist id="theatre-names"></datalist></label>
+            <label class="pbi-filter"><span>Shows</span><input id="theatre-show" type="search" list="theatre-shows" placeholder="All"><datalist id="theatre-shows"></datalist></label>
+          </div>
+
+          <div class="theatre-main-grid">
+            <article class="impact-panel map-panel">
+              <h3>Where Broadway Gross Are</h3>
+              <p>Bubble size represents cumulative gross. Select a theatre for details.</p>
+              <div class="theatre-map" id="theatre-map" aria-label="Approximate map of Broadway theatres">
+                <div class="theatre-map-layer" id="theatre-map-layer">
+                  <span class="map-avenue">Broadway</span><span class="map-street street-1">W 55th</span><span class="map-street street-2">W 48th</span><span class="map-street street-3">W 41st</span>
+                </div>
+                <div class="map-zoom-controls" aria-label="Map zoom controls">
+                  <button id="map-zoom-in" type="button" aria-label="Zoom in">+</button>
+                  <output id="map-zoom-status" aria-live="polite">100%</output>
+                  <button id="map-zoom-out" type="button" aria-label="Zoom out" disabled>&minus;</button>
+                </div>
+              </div>
+            </article>
+            <article class="impact-panel chart-panel">
+              <h3>Highest-Grossing Theatres</h3>
+              <p>Select a bar to cross-filter the map and detail tables.</p>
+              <div class="dashboard-bars" id="theatre-bars"></div>
+            </article>
+          </div>
+
+          <div class="theatre-table-grid">
+            <article class="impact-panel detail-panel">
+              <h3>Theatre Summary</h3>
+              <div class="impact-table-wrap"><table class="theatre-summary-table"><thead><tr><th>Theatre</th><th>Total Gross</th><th>Shows Hosted</th><th>Average Capacity</th></tr></thead><tbody id="theatre-summary-body"></tbody></table></div>
+            </article>
+            <article class="impact-panel detail-panel">
+              <h3>Productions at Selected Theatre</h3>
+              <div class="impact-table-wrap"><table class="theatre-production-table"><thead><tr><th>Production</th><th>Total Gross</th><th>Average Capacity</th></tr></thead><tbody id="theatre-production-body"></tbody></table></div>
+            </article>
+          </div>
+          <p class="dashboard-note"><strong>Map:</strong> theatre positions are approximate from the PBIP address source. Use filters, bubbles, bars, or table rows to cross-filter the page.</p>
+        </div>
       </div>
     </section>
     <article class="story" id="insights" aria-labelledby="theatres-story-title">
@@ -100,5 +139,7 @@
       financial, legal, or business decisions.
     </p>
   </footer>
+  <script src="dashboard-utils.js"></script>
+  <script src="theatres-dashboard.js"></script>
 </body>
 </html>
