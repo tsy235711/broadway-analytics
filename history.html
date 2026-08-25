@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore four decades of Broadway performance history.">
+  <title>40 Years of Broadway | Theater Spotlight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-history">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Theater Spotlight home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>Theater Spotlight</span>
+    </a>
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="index.html">Overview</a>
+      <a class="active" href="history.html" aria-current="page">40 Years of Broadway</a>
+      <a href="theatres.html">Theatre District</a>
+      <a href="tony-awards.html">Tony Awards Effect</a>
+      <a href="rush.html">Rush & Lottery</a>
+      <a class="nav-cta" href="#dashboard">View report</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">40 Years of Broadway</p>
+        <h1>Four decades. Thousands of curtain calls.</h1>
+        <p class="intro">
+          Follow Broadway's changing productions, audiences, and box-office rhythms
+          across forty years of theatre history.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#dashboard">Explore the timeline</a>
+          <a class="text-link" href="#insights">Read the story <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="data-art history-art" aria-hidden="true">
+        <div class="art-topline"><span>Broadway timeline</span><span>1980s—Today</span></div>
+        <div class="decade-list">
+          <span><b>1980s</b><i style="--width: 44%"></i></span>
+          <span><b>1990s</b><i style="--width: 61%"></i></span>
+          <span><b>2000s</b><i style="--width: 78%"></i></span>
+          <span><b>2010s</b><i style="--width: 92%"></i></span>
+          <span><b>2020s</b><i style="--width: 70%"></i></span>
+        </div>
+        <div class="art-stats"><span>Perspective <b>40 years</b></span><span>Story <b>Still unfolding</b></span></div>
+      </div>
+    </section>
+
+    <section class="report-section" id="dashboard" aria-labelledby="report-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Interactive Power BI experience</p>
+          <h2 id="report-title">40 Years of Broadway</h2>
+        </div>
+        <p>Move across the timeline to discover long-term patterns and turning points.</p>
+      </div>
+      <div class="report-frame">
+        <iframe
+          title="Theater Spotlight 40 Years of Broadway"
+          src="https://msit.powerbi.com/reportEmbed?reportId=dc4cd647-b8d5-4627-984f-ca8e05684e54&amp;autoAuth=true&amp;ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&amp;pageName=overview&amp;navContentPaneEnabled=false&amp;filterPaneEnabled=false"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <article class="story" id="insights" aria-labelledby="history-story-title">
+      <div class="story-heading">
+        <p class="section-label">Behind the numbers</p>
+        <h2 id="history-story-title">Broadway is always becoming something new</h2>
+        <p class="story-lead">
+          Forty years reveals more than individual hits—it reveals how the entire
+          Broadway ecosystem adapts.
+        </p>
+      </div>
+      <div class="story-copy">
+        <p>
+          A long view turns weekly results into history. Productions arrive and depart,
+          theatres find new identities, and audience habits shift with tourism, technology,
+          economics, and culture. Explore each decade on its own, then compare it with the
+          periods before and after. A sudden peak may mark an extraordinary season, while a
+          gradual climb can reveal a deeper change in demand.
+        </p>
+        <p>
+          Look for both continuity and reinvention. Long-running productions connect eras,
+          while new creative movements change what reaches the stage and who comes to see it.
+          Prices, attendance, and grosses should be read together: each measure illuminates a
+          different part of the story. The timeline is not a simple march upward. It contains
+          recoveries, interruptions, breakthroughs, and surprises—the dramatic structure you
+          would expect from Broadway itself.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer><span>Theater Spotlight</span><span>Powered by Microsoft Power BI</span></footer>
+</body>
+</html>
